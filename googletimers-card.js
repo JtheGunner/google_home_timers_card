@@ -198,7 +198,7 @@ class GoogleTimersCard extends HTMLElement {
         var alarm_icon = ICON_ALARM
         var alarm_next_icon = '<ha-icon style="padding: 0 3px 0 0; --mdc-icon-size: 1.1em;" icon="'+ ICON_NEXT +'"></ha-icon>'
         var alarm_next = ""
-        var full_alarm_id = "alarm/" + alarms[JSON_ALARM_ID]
+        var full_alarm_id = "alarm/" + alarm[JSON_ALARM_ID]
 
         if(EXCLUDE_ALARM_ID == full_alarm_id){
           continue;
