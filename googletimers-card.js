@@ -100,6 +100,7 @@ class GoogleTimersCard extends HTMLElement {
 
     const STATE_UNKNOWN = "unknown"
     const STATE_UNAVAILABLE = "unavailable"
+    const EXCLUDE_ALARM_ID = "alarm/last_missed_alarm_id"
     const DEFAULT_ICON = "mdi:timer-sand"
 
     // STRINGS
@@ -115,6 +116,7 @@ class GoogleTimersCard extends HTMLElement {
     const JSON_LOCAL_TIME_ISO = "local_time_iso";
     const JSON_FIRE_TIME = "fire_time"
     const JSON_NAME = "label";
+    const JSON_ALARM_ID = "alarm_id";
 
     // ICONS
     const ICON_ALARM = "mdi:alarm";
@@ -196,6 +198,11 @@ class GoogleTimersCard extends HTMLElement {
         var alarm_icon = ICON_ALARM
         var alarm_next_icon = '<ha-icon style="padding: 0 3px 0 0; --mdc-icon-size: 1.1em;" icon="'+ ICON_NEXT +'"></ha-icon>'
         var alarm_next = ""
+        var full_alarm_id = "alarm/" + alarms[JSON_ALARM_ID]
+
+        if(EXCLUDE_ALARM_ID == full_alarm_id){
+          continue;
+        }
 
         var formatted_time = format_alarm_time(alarm[JSON_FIRE_TIME], this.config.use_24hour)
         var recurrence = ""
