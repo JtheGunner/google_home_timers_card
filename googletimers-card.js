@@ -61,15 +61,15 @@ class GoogleTimersCard extends HTMLElement {
           line-height: 28px;
         }
         .value {
-          font-size: 28px;
+          font-size: 16px;
           margin-right: 4px;
         }
         .timer {
-          font-size: 20px;
+          font-size: 14px;
           margin: 8px 4px -5px;
         }
         .alarm {
-          font-size: 20px;
+          font-size: 14px;
           margin: 8px 4px -5px;
           text-transform: capitalize;
         }
@@ -129,13 +129,13 @@ class GoogleTimersCard extends HTMLElement {
     const STRING_HOURS = " h. "
     const STRING_MINUTES = " mins. "
     const STRING_SECONDS = " secs."
-    var WEEKDAYS = { 1 : "mon.",
-                 2 : "tue.",
-                 3 : "wed.",
-                 4 : "thu.",
-                 5 : "fri.",
-                 6 : "sat.",
-                 0 : "sun."
+    var WEEKDAYS = { 1 : "Mo.",
+                 2 : "Di.",
+                 3 : "Mi.",
+                 4 : "Do.",
+                 5 : "Fr.",
+                 6 : "Sa.",
+                 0 : "So."
                };
 
     // Get's timedelta between now and fire_time
@@ -197,7 +197,7 @@ class GoogleTimersCard extends HTMLElement {
         var alarm_next_icon = '<ha-icon style="padding: 0 3px 0 0; --mdc-icon-size: 1.1em;" icon="'+ ICON_NEXT +'"></ha-icon>'
         var alarm_next = ""
 
-        var formatted_time = format_alarm_time(alarm[JSON_FIRE_TIME], this.config.use_12hour)
+        var formatted_time = format_alarm_time(alarm[JSON_FIRE_TIME], this.config.use_24hour)
         var recurrence = ""
 
         if (alarm[JSON_RECURRENCE] != null && alarm[JSON_RECURRENCE].length >= 7) {
@@ -287,11 +287,3 @@ class GoogleTimersCard extends HTMLElement {
   }
 }
 customElements.define('googletimers-card', GoogleTimersCard);
-
-window.customCards = window.customCards || [];
-window.customCards.push({
-  type: 'googletimers-card',
-  name: 'Google Timers Card',
-  preview: false,
-  description: 'The Google Home timers card shows timers and alarms set in Google Home.'
-});
