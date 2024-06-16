@@ -200,6 +200,8 @@ class GoogleTimersCard extends HTMLElement {
         var alarm_next = ""
         var full_alarm_id = "alarm/" + alarm[JSON_ALARM_ID]
 
+        console.log('EXCLUDE_ALARM_ID', EXCLUDE_ALARM_ID);
+        console.log('full_alarm_id', full_alarm_id);
         if(EXCLUDE_ALARM_ID == full_alarm_id){
           continue;
         }
